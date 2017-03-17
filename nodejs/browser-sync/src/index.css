@@ -1,0 +1,23 @@
+body {
+  font-size: 18.1px;
+  background: silver;  
+}
+
+div {
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+}
+
+header {
+  border-radius: 10px;
+  background: darkred;
+}
+
+article {
+  background: lime;  
+}
+
+footer {
+  background: lightblue;
+}
