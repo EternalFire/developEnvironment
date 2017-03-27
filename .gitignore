@@ -41,7 +41,7 @@ jspm_packages
 .idea
 
 # Static files
-public/
+# public/
 
 # gitconfig
 .gitconfig
