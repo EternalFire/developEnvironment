@@ -1,0 +1,63 @@
+.toolContainer {
+  height: 10%;
+  background: #eee;
+  padding: 0;
+  margin: 0 0.5em;
+}
+
+.toolbar {
+  height: 100%;
+}
+
+.content {
+  margin: 0 0.5em;
+  min-height: 500px;
+  background: #fff;
+}
+
+.table {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.videoContainer {
+  width: 100%;
+}
+
+.video {
+  max-width: 100%;
+}
+
+.siderMenu {
+  overflow: hidden;
+  max-height: 95vh;
+  // overflow-y: scroll;
+}
+
+:global(.logo) {
+  height: 2em;
+  background: #333;
+  border-radius: 6px;
+  margin: 16px;
+  text-align: center;
+  line-height: 2em;
+  color: white;
+}
+
+:global(.ant-layout-sider-collapsed .logo) {
+  overflow: hidden;
+}
+
+:global(.ant-layout-sider-collapsed .anticon) {
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+:global(.ant-layout-sider-collapsed .nav-text) {
+  display: none;
+}
+
+:global(.ant-layout-sider-collapsed .ant-menu-submenu-vertical > .ant-menu-submenu-title:after) {
+  display: none;
+}
