@@ -11,7 +11,8 @@
 
 .content {
   margin: 0 0.5em;
-  min-height: 500px;
+  // min-height: 500px;
+  height: 100vh;
   background: #fff;
 }
 
@@ -29,10 +30,60 @@
   max-width: 100%;
 }
 
+.sider {
+  height: 100vh;
+}
+
 .siderMenu {
   overflow: hidden;
   max-height: 95vh;
   // overflow-y: scroll;
+}
+
+:global(.commentList) {
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.commentItem {
+  // border: 1px solid #fff;
+  margin: 5px;
+  word-wrap: break-word;
+}
+
+.commentName {
+  font-size: 1.2em;
+}
+
+:global(.commentBox) {
+  // position: absolute;
+  // bottom: 48px;
+  margin: 5px;
+}
+.commentInput {
+  resize: none;
+}
+.commentSend {
+  margin-top: 5px;
+}
+
+.videoCardContainer {
+  display: block;
+  // background: #404040;
+  width: 99%;  
+  overflow: hidden;
+  overflow-y: scroll; 
+  height: 20%; 
+  zoom: 1;
+  margin: 5px;  
+}
+
+.videoCard {
+  float: left;
+  margin: 10px;
+}
+
+.videoInfo {
 }
 
 :global(.logo) {
@@ -61,3 +112,12 @@
 :global(.ant-layout-sider-collapsed .ant-menu-submenu-vertical > .ant-menu-submenu-title:after) {
   display: none;
 }
+
+:global(.ant-layout-sider-collapsed .commentBox) {
+  display: none;
+}
+
+:global(.ant-layout-sider-collapsed .commentList) {
+  display: none;
+}
+
