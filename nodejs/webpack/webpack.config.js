@@ -13,7 +13,7 @@ module.exports = {
 
   output: {
     path: __dirname + "/public",
-    filename: "bundle.js"
+    filename: "[name].bundle.js"
   },
   
   module: {
@@ -80,8 +80,7 @@ module.exports = {
       template: __dirname + '/app/index.html',
       minify: {
         minifyCSS: true, 
-        collapseWhitespace: true,
-
+        // collapseWhitespace: true,
       }
     }), 
 
