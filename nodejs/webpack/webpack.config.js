@@ -9,12 +9,15 @@ module.exports = {
   devtool: "eval-source-map",  
   // devtool: 'cheap-module-eval-source-map',
 
-  entry: __dirname + "/app/main.js",
+  entry: {
+    main: __dirname + '/app/main.js',
+    component: __dirname + '/app/Greeter.js'
+  }, 
 
   output: {
     path: __dirname + "/public",
     filename: "[name].bundle.js"
-  },
+  }, 
   
   module: {
     rules: [
@@ -79,7 +82,7 @@ module.exports = {
       filename: 'index.html',
       template: __dirname + '/app/index.html',
       minify: {
-        minifyCSS: true, 
+        // minifyCSS: true, 
         // collapseWhitespace: true,
       }
     }), 
