@@ -46,8 +46,10 @@ module.exports = {
               loader: 'style-loader'
             },
             {
-              loader: 'css-loader?modules'
-              // loader: 'css-loader?importLoaders=1'
+              loader: 'css-loader?modules',
+              options: {
+                modules: true
+              }
             },
             {
               loader: 'postcss-loader',
