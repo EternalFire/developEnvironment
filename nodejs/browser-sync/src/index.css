@@ -1,23 +1,64 @@
-body {
-  font-size: 18.1px;
-  background: silver;  
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-div {
-  margin: 0 auto;
-  width: 60%;
+body {
+  background: grey;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: 1px solid hsla(0,0%,100%,0.5);
+  
+  margin: auto;  
+  padding: 0 1em;
+
+  /*display: flex;*/
+  flex-flow: column nowrap;
+  /*align-items: stretch;*/
+}
+
+.container > * {  
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+.svg-container {
+  background: url(helicopter.svg) no-repeat center;
+  width: 500px;
+  height: 400px;
+}
+
+.svg-container iframe {
+  display: block;
+  /*width: 100%;*/
+}
+
+.text-container {
+  margin: auto;  
   text-align: center;
 }
 
-header {
-  border-radius: 10px;
-  background: darkred;
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-article {
-  background: lime;  
+div {
+  font-size: 24px;
 }
-
-footer {
-  background: lightblue;
+[data-dpr="2"] div {
+    font-size: 48px;
+}
+[data-dpr="3"] div {
+    font-size: 72px;
 }
