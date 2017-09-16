@@ -1,0 +1,15 @@
+{
+  "name": "try-socket.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js",
+    "client": "node client.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.0.3"
+  }
+}
