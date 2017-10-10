@@ -1,0 +1,1 @@
+Rx.Observable.interval(100).take(5).subscribe(x => console.log(x));
