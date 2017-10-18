@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test socket.io</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script>
+        // test room01
+        function room01() {
+            const room01 = io("ws://192.168.10.58:6880/room01");
+            room01.on("connect", () => {
+                setInterval(function(){
+                    room01.emit('room01 message from ' + room01.id)
+                }, 1000);
+
+            });
+
+            room01.on('a message', function (a0) {
+                var args = Array.prototype.splice.call(arguments, 0);
+
+                console.log(room01.id, `a message  arguments:`, args)
+                // console.log(a0);
+
+            });
+        }
+        room01()
+    </script>
+</body>
+</html>

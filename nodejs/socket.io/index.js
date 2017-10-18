@@ -21,7 +21,7 @@ function delClient(id) {
 }
 
 // 事件处理函数
-function handleRequestFile(socket, path) {  
+function handleRequestFile(socket, path) {
   fs.readFile('demo.txt', 'utf8', function (err, data) {
     if (err) {
       return console.error(err)
@@ -36,7 +36,7 @@ function handleRequestFile(socket, path) {
 function useIO() {
   var io = require('socket.io').listen(constants.SERVER_PORT)
 
-  function handleError(error) {    
+  function handleError(error) {
     console.log('handleError: ')
     console.log(error)
   }
@@ -54,7 +54,7 @@ function useIO() {
   }
 
   // 广播消息
-  function broadcastMessage(socket, message, toSender) {  
+  function broadcastMessage(socket, message, toSender) {
     if (toSender) {
       socket.emit('message', message)
     }
@@ -62,9 +62,9 @@ function useIO() {
   }
 
   io.on('connection', function (socket) {
-    
+
     handleConnect(socket)
-    
+
     let socketID = socket.id
 
     socket.on('message', function() {
@@ -74,7 +74,7 @@ function useIO() {
       console.log(arguments);
     })
 
-    socket.on('disconnect', function() {            
+    socket.on('disconnect', function() {
       delClient(socketID)
       let message = 'client [' + socketID + '] disconnect!! Num: (' + clientsLength() + ')'
 
@@ -83,7 +83,7 @@ function useIO() {
       console.log(message)
     })
 
-    socket.on('error', handleError)    
+    socket.on('error', handleError)
 
     socket.on(constants.EVENT_REQUEST_FILE, function(){
       handleRequestFile(socket, 'demo.txt')
@@ -91,6 +91,55 @@ function useIO() {
   })
 
   log('server ready!')
+
+  return io;
 }
 
-useIO()
+function useRoom(io, roomName) {
+  let room;
+
+  if (!io) {
+    console.log("io is null");
+    return;
+  }
+
+  if (!roomName) {
+    console.log("roomName is null");
+    return;
+  }
+
+  room = io.of(roomName)
+
+  console.log(`useRoom ${roomName} ${!!room}`)
+  return room;
+}
+
+function useRoom01(room) {
+  if (!room) {
+    console.log("room is null")
+    return;
+  }
+
+  room.on("connection", (socket) => {
+    socket.emit('a message', {
+      that: 'only'
+    , '/chat': 'will get'
+    });
+
+    room.emit('a message', {
+        everyone: 'in'
+      , '/chat': 'will get'
+    });
+  });
+
+  room.emit('a message', {"k1": "value1"});
+  room.emit('a message', "data data");
+}
+
+(function() {
+  let io = useIO();
+
+  let room01 = useRoom(io, "room01");
+  useRoom01(room01);
+
+})()
