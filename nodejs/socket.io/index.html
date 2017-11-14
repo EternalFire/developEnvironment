@@ -26,8 +26,22 @@
                 // console.log(a0);
 
             });
+
+            console.log(room01.connect);
         }
-        room01()
+
+        function testIO() {
+            const socket = io("ws://192.168.10.58:6880");
+            socket.on("connect", ()=>{
+                console.log("client connected!");
+
+                setTimeout(function() {
+                    console.log("start room01...");
+                    room01();
+                }, 2000);
+            });
+        }
+        testIO()
     </script>
 </body>
 </html>
