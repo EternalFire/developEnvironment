@@ -130,10 +130,17 @@ function useRoom01(room) {
         everyone: 'in'
       , '/chat': 'will get'
     });
+
+
+    socket.on("a message", (data) => {
+      room.emit("a message", "server !");
+      console.log("a message:", data);
+    });
   });
 
-  room.emit('a message', {"k1": "value1"});
-  room.emit('a message', "data data");
+
+  // room.emit('a message', {"k1": "value1"});
+  // room.emit('a message', "data data");
 }
 
 (function() {

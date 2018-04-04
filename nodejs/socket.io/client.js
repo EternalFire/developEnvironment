@@ -47,6 +47,9 @@ socket.on('connect', () => {
   //   socket.disconnect(true);
   // }, 2000);
 
+  setTimeout(function() {
+    room01();
+  }, 1000);
 });
 
 // test room01
@@ -54,7 +57,7 @@ function room01() {
   const room01 = io(`${uri}/room01`);
   room01.on("connect", () => {
     setInterval(function(){
-      room01.emit('room01 message from ' + room01.id)
+      room01.emit('a message', 'room01 message from ' + room01.id)
     }, 1000);
 
   });
@@ -67,4 +70,3 @@ function room01() {
 
   });
 }
-room01()
